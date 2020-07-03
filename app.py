@@ -1,5 +1,6 @@
 from azure.servicebus import QueueClient, Message
-CONNECTION = 'Endpoint=sb://queue255423.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=sLWuWACutrI7iqcAyhnFoG8sk/YQ+QhwwuAeV9bfsHE='
+
+CONNECTION = 'Endpoint=sb://YOUR_QUEUE_STRING'
 # Create the QueueClient
 queue_client = QueueClient.from_connection_string(CONNECTION, "taskqueue")
 
