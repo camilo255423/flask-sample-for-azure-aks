@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-python-service
+spec:
+  selector:
+    app: flask-python-sample
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: 5000
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-python-sample
+spec:
+  selector:
+    matchLabels:
+      app: flask-python-sample
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: flask-python-sample
+    spec:
+      containers:
+      - name: hello-python
+        image: iadevregister.azurecr.io/flask-python-sample:v1.0.0
+        ports:
+        - containerPort: 5000

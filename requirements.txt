@@ -1,0 +1,3 @@
+azure-servicebus==0.50.3
+Flask==1.1.2
+
